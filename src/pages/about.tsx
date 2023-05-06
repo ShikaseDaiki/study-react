@@ -2,15 +2,21 @@ import { Inter } from "next/font/google";
 import Head from "next/head";
 import { Main } from "@/components/Main";
 import { Header } from "@/components/Header";
-import { useCounter } from "@/hooks/useCounter";
-import { useInputArray } from "@/hooks/useInputArray";
-import { useBgBlue } from "@/hooks/useBgBlue";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function About() {
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, handleChange, handleAdd } = useInputArray();
-  useBgBlue();
+export default function About(props: any) {
+  console.log(props);
+
+  const {
+    count,
+    isShow,
+    handleClick,
+    handleDisplay,
+    text,
+    array,
+    handleChange,
+    handleAdd,
+  } = props;
   return (
     <div>
       <Head>
@@ -27,7 +33,7 @@ export default function About() {
         <input type="text" value={text} onChange={handleChange} />
         <button onClick={handleAdd}>追加</button>
         <ul>
-          {array.map((item) => {
+          {array.map((item: string) => {
             return <div key={item}>{item}</div>;
           })}
         </ul>
