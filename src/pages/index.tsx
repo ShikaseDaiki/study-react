@@ -9,9 +9,9 @@ export default function Home() {
   const foo = 2;
 
   const handleClick = useCallback((e: any) => {
-    console.log(e.target.href);
+    // console.log(e.target.href);
     // e.preventDefasult();
-    alert(foo);
+    // alert(foo);
   }, []);
 
   return (
