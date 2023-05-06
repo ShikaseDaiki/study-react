@@ -6,7 +6,7 @@ import { useCallback } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const foo = 1;
+  const foo = 2;
 
   const handleClick = useCallback((e: any) => {
     console.log(e.target.href);
