@@ -10,7 +10,7 @@ export default function Home() {
 
   const handleClick = useCallback((e: any) => {
     console.log(e.target.href);
-    e.preventDefasult();
+    // e.preventDefasult();
     alert(foo);
   }, []);
 
