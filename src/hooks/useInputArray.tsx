@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import { useCallback, useState } from "react";
-const inter = Inter({ subsets: ["latin"] });
 
 export const useInputArray = () => {
   const [text, setText] = useState("");
@@ -16,7 +15,7 @@ export const useInputArray = () => {
 
   const handleAdd = useCallback(() => {
     setArray((prevArray) => {
-      if (prevArray.some((item) => item === text)) {
+      if (prevArray.includes(text)) {
         alert("同じ要素が既に存在します");
         return prevArray;
       }

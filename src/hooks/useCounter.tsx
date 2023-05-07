@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import { useCallback, useMemo, useState } from "react";
-const inter = Inter({ subsets: ["latin"] });
 
 export const useCounter = () => {
   const [count, setCount] = useState(1);

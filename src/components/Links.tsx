@@ -1,7 +1,7 @@
-export function Links({ items }: any) {
+export const Links = (props: any) => {
   return (
     <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-      {items.map((item: any) => {
+      {props.items.map((item: any) => {
         return (
           <a
             key={item.href}
@@ -24,4 +24,4 @@ export function Links({ items }: any) {
       })}
     </div>
   );
-}
+};
