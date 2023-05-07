@@ -8,7 +8,7 @@ export default function About(props: any) {
   console.log(props);
 
   const {
-    count,
+    doubleCount,
     isShow,
     handleClick,
     handleDisplay,
@@ -24,7 +24,7 @@ export default function About(props: any) {
       </Head>
       <Header></Header>
       <div className="text-red-600 flex flex-col items-center">
-        {isShow ? <h1>{count}</h1> : null}
+        {isShow ? <h1>{doubleCount}</h1> : null}
         <button onClick={handleClick}>ボタン</button>
         <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
       </div>

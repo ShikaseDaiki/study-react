@@ -1,10 +1,14 @@
 import { Inter } from "next/font/google";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const useCounter = () => {
   const [count, setCount] = useState(1);
   const [isShow, setIsShow] = useState(true);
+
+  const doubleCount = useMemo(() => {
+    return count * 2;
+  }, [count]);
 
   const handleClick = useCallback(
     (e: any) => {
@@ -21,5 +25,5 @@ export const useCounter = () => {
     });
   }, []);
 
-  return { count, isShow, handleClick, handleDisplay };
+  return { count, doubleCount, isShow, handleClick, handleDisplay };
 };
