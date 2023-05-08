@@ -1,16 +1,11 @@
-import { Inter } from "next/font/google";
-import Head from "next/head";
-import { Main } from "@/components/Main";
-import { Header } from "@/components/Header";
 import { useCallback, useEffect, useState } from "react";
-import { Posts } from "@/components/Post";
 
 type Post = {
   id: number;
   title: string;
 };
 
-const Home = (props: any) => {
+export const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
@@ -33,15 +28,23 @@ const Home = (props: any) => {
     getPosts();
   }, [getPosts]);
 
+  if (loading) {
+    <div>ローディング中です</div>;
+  }
+
+  if (error) {
+    <div>{error.message}</div>;
+  }
+
+  if (posts.length === 0) {
+    <div>データは空です</div>;
+  }
+
   return (
-    <div>
-      <Head>
-        <title>Index Page</title>
-      </Head>
-      <Header />
-      <Posts />
-    </div>
+    <ol>
+      {posts.map((post: Post) => {
+        return <li key={post.id}>{post.title}</li>;
+      })}
+    </ol>
   );
 };
-
-export default Home;
