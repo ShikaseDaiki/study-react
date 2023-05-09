@@ -19,20 +19,23 @@ const initialState = {
 
 const reducer = (state: any, action: any) => {
   switch (action.type) {
-    case "end":
+    case "end": {
       return {
         ...state,
         data: action.data,
         loading: false,
       };
-    case "error":
+    }
+    case "error": {
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-    default:
+    }
+    default: {
       throw new Error("no such action type");
+    }
   }
 };
 
