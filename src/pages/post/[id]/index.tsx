@@ -1,18 +1,18 @@
-import { Inter } from "next/font/google";
 import Head from "next/head";
 import { Header } from "@/components/Header";
-import { Post } from "@/components/Post";
+import { useRouter } from "next/router";
 
-const Home = () => {
+const PostId = () => {
+  const router = useRouter();
   return (
     <div>
       <Head>
         <title>Index Page</title>
       </Head>
       <Header />
-      <Post />
+      <div>{router.query.id}</div>
     </div>
   );
 };
 
-export default Home;
+export default PostId;

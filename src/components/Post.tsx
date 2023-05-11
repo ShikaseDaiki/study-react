@@ -1,4 +1,5 @@
 import { usePost } from "@/hooks/usePost";
+import Link from "next/link";
 
 type Post = {
   id: number;
@@ -33,7 +34,13 @@ export const Post = () => {
       {isEmpty ? <div>データは空です</div> : null}
       <ol>
         {data?.map((post: any) => {
-          return <li key={post.id}>{post.title}</li>;
+          return (
+            <li key={post.id}>
+              <Link href={`/post/${post.id}`}>
+                {post.id}. {post.title}
+              </Link>
+            </li>
+          );
         })}
       </ol>
     </div>
