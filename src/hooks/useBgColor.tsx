@@ -20,7 +20,6 @@ export const useBgColor = () => {
 
   useEffect(() => {
     document.body.style.backgroundColor = bgColor;
-    // router.pathname === "/" ? "lightblue" : "purple";
     // クリーンアップファンクション
     return () => {
       document.body.style.backgroundColor = "";

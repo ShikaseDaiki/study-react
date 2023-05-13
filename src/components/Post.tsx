@@ -1,4 +1,4 @@
-import { usePost } from "@/hooks/usePost";
+import { usePosts } from "@/hooks/usePosts";
 import Link from "next/link";
 
 type Post = {
@@ -13,7 +13,7 @@ type State = {
 };
 
 export const Post = () => {
-  const { data, error, isLoading, isEmpty } = usePost();
+  const { data, error, isLoading, isEmpty } = usePosts();
 
   if (isLoading) {
     <div>ローディング中です</div>;
