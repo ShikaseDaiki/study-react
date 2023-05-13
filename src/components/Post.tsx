@@ -1,19 +1,9 @@
-import { usePosts } from "@/hooks/usePosts";
-import Link from "next/link";
-
-type Post = {
-  id: number;
-  title: string;
-};
-
-type State = {
-  data: string[];
-  loading: boolean;
-  error: any;
-};
+import { usePost } from "@/hooks/usePost";
+import Head from "next/head";
 
 export const Post = () => {
-  const { data, error, isLoading, isEmpty } = usePosts();
+  const { post, user, error, isLoading } = usePost();
+  console.log({ post, user, error, isLoading });
 
   if (isLoading) {
     <div>ローディング中です</div>;
@@ -23,26 +13,18 @@ export const Post = () => {
     <div>{error.message}</div>;
   }
 
-  if (isEmpty) {
-    <div>データは空です</div>;
-  }
-
   return (
     <div>
       {isLoading ? <div>ローディング中です</div> : null}
       {error ? <div>{error.message}</div> : null}
-      {isEmpty ? <div>データは空です</div> : null}
-      <ol>
-        {data?.map((post: any) => {
-          return (
-            <li key={post.id}>
-              <Link href={`/post/${post.id}`}>
-                {post.id}. {post.title}
-              </Link>
-            </li>
-          );
-        })}
-      </ol>
+      <div>
+        <Head>
+          <title>{post?.title}</title>
+        </Head>
+        <h1>{post?.title}</h1>
+        <p>{post?.body}</p>
+        {user?.name ? <div>Created by {user.name}</div> : null}
+      </div>
     </div>
   );
 };
