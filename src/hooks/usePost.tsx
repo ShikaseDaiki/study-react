@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { fetcher } from "@/hooks/usePosts";
+import { fetcher } from "@/utils/fetcher";
 
 export const usePost = () => {
   const router = useRouter();
@@ -22,6 +22,6 @@ export const usePost = () => {
     post,
     user,
     error: postError || userError,
-    isLoading: !post && !postError && !user && !userError,
+    isLoading: !user && !userError,
   };
 };
