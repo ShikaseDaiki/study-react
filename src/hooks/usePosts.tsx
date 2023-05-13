@@ -2,7 +2,7 @@ import { fetcher } from "@/utils/fetcher";
 import useSWR from "swr";
 
 export const usePosts = () => {
-  const { data, error, isLoading } = useSWR(
+  const { data, error } = useSWR(
     "https://jsonplaceholder.typicode.com/posts",
     fetcher
   );
