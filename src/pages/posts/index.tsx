@@ -1,18 +1,18 @@
 import { Inter } from "next/font/google";
 import Head from "next/head";
 import { Header } from "@/components/Header";
-import { Posts } from "@/components/Posts";
+import { Posts as PostsComponent } from "@/components/Posts";
 
-const Home = () => {
+const Posts = () => {
   return (
     <div>
       <Head>
-        <title>Index Page</title>
+        <title>Posts Page</title>
       </Head>
       <Header />
-      <Posts />
+      <PostsComponent />
     </div>
   );
 };
 
-export default Home;
+export default Posts;

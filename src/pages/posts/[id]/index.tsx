@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { Post } from "@/components/Post";
 
-const PostId = () => {
+const PostsId = () => {
   return (
     <div>
       <Header />
@@ -10,4 +10,4 @@ const PostId = () => {
   );
 };
 
-export default PostId;
+export default PostsId;
