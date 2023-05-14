@@ -12,8 +12,6 @@ export const Comment = () => {
     <div>{error.message}</div>;
   }
 
-  console.log({ comment, error, isLoading });
-
   return (
     <div>
       {isLoading ? <div>ローディング中です</div> : null}

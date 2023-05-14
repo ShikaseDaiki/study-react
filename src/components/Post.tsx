@@ -3,7 +3,6 @@ import Head from "next/head";
 
 export const Post = () => {
   const { post, user, error, isLoading } = usePost();
-  console.log({ post, user, error, isLoading });
 
   if (isLoading) {
     <div>ローディング中です</div>;
