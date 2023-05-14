@@ -29,20 +29,23 @@ export const Posts = () => {
 
   return (
     <div>
-      {isLoading ? <div>ローディング中です</div> : null}
       {error ? <div>{error.message}</div> : null}
       {isEmpty ? <div>データは空です</div> : null}
-      <ol>
-        {data?.map((post: any) => {
-          return (
-            <li key={post.id}>
-              <Link href={`/posts/${post.id}`}>
-                {post.id}. {post.title}
-              </Link>
-            </li>
-          );
-        })}
-      </ol>
+      {isLoading ? (
+        <div>ローディング中です</div>
+      ) : (
+        <ol>
+          {data?.map((post: any) => {
+            return (
+              <li key={post.id}>
+                <Link href={`/posts/${post.id}`}>
+                  {post.id}. {post.title}
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
+      )}
     </div>
   );
 };
