@@ -16,8 +16,6 @@ export const Comments = () => {
     <div>データは空です</div>;
   }
 
-  console.log({ data, error, isLoading, isEmpty });
-
   return (
     <div>
       {error ? <div>{error.message}</div> : null}

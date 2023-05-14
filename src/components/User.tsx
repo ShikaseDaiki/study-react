@@ -22,7 +22,7 @@ export const User = () => {
             <title>{user?.name}</title>
           </Head>
           <h1>ユーザーID : {user?.id}</h1>
-          <p>名前 : {user?.name}</p>
+          <p>名前 : {user?.username}</p>
           {user?.name ? <div>電話番号 : {user.phone}</div> : null}
         </div>
       )}

@@ -16,8 +16,6 @@ export const Users = () => {
     <div>データは空です</div>;
   }
 
-  console.log({ data, error, isLoading, isEmpty });
-
   return (
     <div>
       {error ? <div>{error.message}</div> : null}
@@ -28,7 +26,7 @@ export const Users = () => {
             return (
               <li key={user.id}>
                 <Link href={`/users/${user.id}`}>
-                  {user.id}. {user.name}
+                  {user.id}. {`${user.name} (${user.email})`}
                 </Link>
               </li>
             );
