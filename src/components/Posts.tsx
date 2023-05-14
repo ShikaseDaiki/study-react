@@ -1,17 +1,6 @@
 import { usePosts } from "@/hooks/usePosts";
 import Link from "next/link";
 
-type Post = {
-  id: number;
-  title: string;
-};
-
-type State = {
-  data: string[];
-  loading: boolean;
-  error: any;
-};
-
 export const Posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
 
