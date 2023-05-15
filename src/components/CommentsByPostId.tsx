@@ -1,8 +1,8 @@
-import { useComments } from "@/hooks/useFetchArray";
+import { useCommentsByPostId } from "@/hooks/useFetchArray";
 import Link from "next/link";
 
-export const Comments = () => {
-  const { data, error, isLoading, isEmpty } = useComments();
+export const CommentsByPostId = (props: any) => {
+  const { data, error, isLoading, isEmpty } = useCommentsByPostId(props.id);
 
   if (isLoading) {
     <div>ローディング中です</div>;
