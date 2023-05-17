@@ -1,4 +1,3 @@
-import { useCommentsByPostId } from "@/hooks/useFetchArray";
 import { usePost } from "@/hooks/usePost";
 import Head from "next/head";
 import { useRouter } from "next/router";
