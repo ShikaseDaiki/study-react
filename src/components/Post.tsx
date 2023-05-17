@@ -1,11 +1,13 @@
 import { useCommentsByPostId } from "@/hooks/useFetchArray";
 import { usePost } from "@/hooks/usePost";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { CommentsByPostId } from "./CommentsByPostId";
 import { UserByUserId } from "./UserByUserId";
 
 export const Post = () => {
-  const { data, error, isLoading } = usePost();
+  const router = useRouter();
+  const { data, error, isLoading } = usePost(router.query.id);
 
   if (isLoading) {
     <div>ローディング中です</div>;
@@ -22,6 +24,7 @@ export const Post = () => {
       <Head>
         <title>{data?.title}</title>
       </Head>
+      【投稿詳細】
       <h1>{data?.title}</h1>
       <p>{data?.body}</p>
       【投稿者】
