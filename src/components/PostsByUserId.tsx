@@ -16,7 +16,6 @@ export const PostsByUserId = (props: any) => {
     <div>コメントがありません</div>;
   }
 
-  console.log({ data });
   return (
     <div>
       {error ? <div>{error.message}</div> : null}

@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
-import { idText } from "typescript";
 import Link from "next/link";
 
 export const UserByUserId = (props: any) => {
