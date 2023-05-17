@@ -1,5 +1,6 @@
 import { useComment } from "@/hooks/useComment";
 import Head from "next/head";
+import { PostByPostId } from "./PostByPostId";
 
 export const Comment = () => {
   const { comment, error, isLoading } = useComment();
@@ -24,6 +25,8 @@ export const Comment = () => {
           <h1>コメントID : {comment?.id}</h1>
           <p>名前 : {comment?.name}</p>
           {comment?.name ? <div>メールアドレス : {comment.email}</div> : null}
+          【投稿元】
+          <PostByPostId id={comment?.postId} />
         </div>
       )}
     </div>
