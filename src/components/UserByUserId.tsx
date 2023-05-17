@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import { idText } from "typescript";
+import Link from "next/link";
 
 export const UserByUserId = (props: any) => {
   const { data, error } = useSWR(
@@ -16,5 +17,9 @@ export const UserByUserId = (props: any) => {
     return <div>{error.message}</div>;
   }
 
-  return <div>{data?.name ? <div>Created by {data.name}</div> : null}</div>;
+  return (
+    <div>
+      {data?.name ? <Link href={`/users/${data.id}`}> {data.name}</Link> : null}
+    </div>
+  );
 };
