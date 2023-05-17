@@ -21,11 +21,16 @@ export const User = () => {
           <Head>
             <title>{user?.name}</title>
           </Head>
+          <p>【ユーザー詳細】</p>
           <h1>ユーザーID : {user?.id}</h1>
           <p>名前 : {user?.username}</p>
-          {user?.name ? <div>電話番号 : {user.phone}</div> : null}
-          【投稿一覧】
-          <PostsByUserId id={user?.id} />
+          {user?.name ? (
+            <div>
+              電話番号 : {user.phone}
+              <p>【投稿一覧】</p>
+              <PostsByUserId id={user?.id} />
+            </div>
+          ) : null}
         </div>
       )}
     </div>
