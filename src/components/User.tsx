@@ -1,5 +1,6 @@
 import { useUser } from "@/hooks/useUser";
 import Head from "next/head";
+import { PostsByUserId } from "./PostsByUserId";
 
 export const User = () => {
   const { user, error, isLoading } = useUser();
@@ -11,7 +12,6 @@ export const User = () => {
   if (error) {
     <div>{error.message}</div>;
   }
-
   return (
     <div>
       {isLoading ? <div>ローディング中です</div> : null}
@@ -24,6 +24,8 @@ export const User = () => {
           <h1>ユーザーID : {user?.id}</h1>
           <p>名前 : {user?.username}</p>
           {user?.name ? <div>電話番号 : {user.phone}</div> : null}
+          【投稿一覧】
+          <PostsByUserId id={user?.id} />
         </div>
       )}
     </div>
