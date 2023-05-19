@@ -4,7 +4,7 @@ const Document = () => {
   return (
     <Html lang="en">
       <Head />
-      <body>
+      <body className="flex flex-col items-center mx-auto px-2 min-h-screen max-w-2xl">
         <Main />
         <NextScript />
       </body>
