@@ -12,6 +12,7 @@ export const User = () => {
   if (error) {
     <div>{error.message}</div>;
   }
+
   return (
     <div>
       {isLoading ? <div>ローディング中です</div> : null}
@@ -21,16 +22,20 @@ export const User = () => {
           <Head>
             <title>{user?.name}</title>
           </Head>
-          <p>【ユーザー詳細】</p>
-          <h1>ユーザーID : {user?.id}</h1>
-          <p>名前 : {user?.username}</p>
-          {user?.name ? (
-            <div>
-              電話番号 : {user.phone}
-              <p>【投稿一覧】</p>
-              <PostsByUserId id={user?.id} />
-            </div>
-          ) : null}
+          <h1 className="font-bold text-3xl">{user.name}</h1>
+          <h2 className="text-xl font-bold mt-10">詳細</h2>
+          <ul className="list-inside list-disc mt-2 text-xl">
+            <li>メール: {user?.email}</li>
+            <li>アカウント名: {user?.username}</li>
+            <li>住所: {user.address.city}</li>
+            <li>電話番号: {user?.phone}</li>
+            <li>Webサイト: {user?.website}</li>
+            <li>勤務先: {user?.company.name}</li>
+          </ul>
+          <h2 className="text-xl font-bold mt-10">投稿</h2>
+          <div className="mt-2">
+            <PostsByUserId id={user?.id} />
+          </div>
         </div>
       )}
     </div>

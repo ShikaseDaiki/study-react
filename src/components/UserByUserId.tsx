@@ -18,7 +18,11 @@ export const UserByUserId = (props: any) => {
 
   return (
     <div>
-      {data?.name ? <Link href={`/users/${data.id}`}> {data.name}</Link> : null}
+      {data?.name ? (
+        <Link href={`/users/${data.id}`} className="text-lg">
+          Created by {data.name}
+        </Link>
+      ) : null}
     </div>
   );
 };

@@ -21,17 +21,21 @@ export const Users = () => {
       {error ? <div>{error.message}</div> : null}
       {isEmpty ? <div>データは空です</div> : null}
       {isLoading ? null : (
-        <ol>
+        <ul className="grid grid-cols-2 gap-6">
           {data?.map((user: any) => {
             return (
               <li key={user.id}>
-                <Link href={`/users/${user.id}`}>
-                  {user.id}. {`${user.name} (${user.email})`}
+                <Link
+                  href={`/users/${user.id}`}
+                  className="block p-4 shadow rounded hover:bg-gray-100"
+                >
+                  <h1 className="text-xl font-bold truncate">{user.name}</h1>
+                  <div className="text-lg truncate">{user.email}</div>
                 </Link>
               </li>
             );
           })}
-        </ol>
+        </ul>
       )}
     </div>
   );

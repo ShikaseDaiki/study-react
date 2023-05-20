@@ -21,17 +21,20 @@ export const Comments = () => {
       {error ? <div>{error.message}</div> : null}
       {isEmpty ? <div>データは空です</div> : null}
       {isLoading ? null : (
-        <ol>
+        <ul className="space-y-2">
           {data?.map((comment: any) => {
             return (
-              <li key={comment.id}>
-                <Link href={`/comments/${comment.id}`}>
-                  {comment.id}. {comment.body}
+              <li key={comment.id} className="border-b pb-2">
+                <Link
+                  href={`/comments/${comment.id}`}
+                  className="block hover:text-blue-500"
+                >
+                  {comment.body}
                 </Link>
               </li>
             );
           })}
-        </ol>
+        </ul>
       )}
     </div>
   );

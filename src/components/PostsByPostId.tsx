@@ -14,7 +14,14 @@ export const PostsByPostId = (props: any) => {
 
   return (
     <div>
-      {data?.id ? <Link href={`/posts/${data.id}`}>{data.title}</Link> : null}
+      {data?.id ? (
+        <Link
+          href={`/posts/${data.id}`}
+          className="text-lg hover:text-blue-500"
+        >
+          {data.title}
+        </Link>
+      ) : null}
     </div>
   );
 };

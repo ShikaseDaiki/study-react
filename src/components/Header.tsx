@@ -10,7 +10,7 @@ const NAV_ITEM = [
 
 export const Header = () => {
   return (
-    <header className="flex justify-center item-center border-b w-full h-16">
+    <header className="flex justify-center item-center border-b w-full h-16 mb-4">
       {NAV_ITEM.map((item) => {
         return (
           <Link
