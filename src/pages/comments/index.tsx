@@ -1,15 +1,34 @@
 import Head from "next/head";
 import { Header } from "@/components/Header";
-import { Comments as CommentsComponent } from "@/components/Comments";
+import { CommentsComponent } from "@/components/Comments";
+import { SWRConfig } from "swr";
 
-const Comments = () => {
+export const getStaticProps = async () => {
+  const COMMENTS_API_URL = `https://jsonplaceholder.typicode.com/comments`;
+  const comments = await fetch(COMMENTS_API_URL);
+  const commentsData = await comments.json();
+
+  return {
+    props: {
+      fallback: {
+        [COMMENTS_API_URL]: commentsData,
+      },
+    },
+  };
+};
+
+const Comments = (props: any) => {
+  const { fallback } = props;
+
   return (
     <div>
       <Head>
         <title>Comments Page</title>
       </Head>
-      <Header />
-      <CommentsComponent />
+      <SWRConfig value={fallback}>
+        <Header />
+        <CommentsComponent />
+      </SWRConfig>
     </div>
   );
 };
