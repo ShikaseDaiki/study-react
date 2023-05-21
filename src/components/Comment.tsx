@@ -2,7 +2,7 @@ import { useComment } from "@/hooks/useComment";
 import Head from "next/head";
 import { PostsByPostId } from "./PostsByPostId";
 
-export const Comment = () => {
+export const CommentComponent = () => {
   const { comment, error, isLoading } = useComment();
 
   if (isLoading) {
