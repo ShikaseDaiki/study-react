@@ -23,9 +23,9 @@ export const CommentComponent = () => {
             <title>{comment?.body}</title>
           </Head>
           <div className="text-lg">
-            {comment.name} ({comment.email})
+            {comment?.name} ({comment?.email})
           </div>
-          <h1 className="text-3xl font-bold">{comment.body}</h1>
+          <h1 className="text-3xl font-bold">{comment?.body}</h1>
           <h2 className="text-xl font-bold mt-10">元の記事</h2>
           <div className="mt-2">
             <PostsByPostId id={comment?.postId} />
