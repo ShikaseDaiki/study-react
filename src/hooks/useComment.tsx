@@ -1,10 +1,10 @@
 import { API_URL } from "@/utils/const";
 import { useRouter } from "next/router";
-import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 
 export const useComment = () => {
   const router = useRouter();
-  const { data: comment, error: commentError } = useSWR(
+  const { data: comment, error: commentError } = useSWRImmutable(
     router.query.id ? `${API_URL}/comments/${router.query.id}` : null
   );
 
